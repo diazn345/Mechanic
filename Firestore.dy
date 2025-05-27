@@ -1,0 +1,12 @@
+import firebase_admin
+from firebase_admin import credentials, firestore
+
+# Firebase 서비스 계정 키 경로
+cred = credentials.Certificate("serviceAccountKey.json")
+
+# 앱이 이미 초기화되지 않았다면 초기화
+if not firebase_admin._apps:
+    firebase_admin.initialize_app(cred)
+
+# Firestore 클라이언트 생성
+db = firestore.client()
